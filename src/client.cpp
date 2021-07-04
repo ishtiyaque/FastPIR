@@ -89,7 +89,7 @@ std::vector<unsigned char> Client::decode(std::vector<uint64_t> v)
     std::string bit_str;
     for (auto item : v)
     {
-        bit_str += std::bitset<18>(item).to_string();
+        bit_str += std::bitset<PLAIN_BIT>(item).to_string();
     }
 
     for (int i = 0; i < N / 2; i++)
