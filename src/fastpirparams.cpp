@@ -2,7 +2,7 @@
 
 FastPIRParams::FastPIRParams(size_t num_obj, size_t obj_size)
 {
-    seal_params = seal::EncryptionParameters(seal::scheme_type::BFV);
+    seal_params = seal::EncryptionParameters(seal::scheme_type::bfv);
     seal_params.set_poly_modulus_degree(POLY_MODULUS_DEGREE);
     seal_params.set_coeff_modulus(COEFF_MOD_ARR);
     seal_params.set_plain_modulus(PLAIN_MODULUS);

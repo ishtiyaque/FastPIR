@@ -22,7 +22,7 @@ public:
     PIRResponse get_response(uint32_t client_id, PIRQuery query);
 
 private:
-    std::shared_ptr<seal::SEALContext> context;
+    seal::SEALContext *context;
     seal::Evaluator *evaluator;
     seal::BatchEncoder *batch_encoder;
     std::map<uint32_t, seal::GaloisKeys> client_galois_keys;

@@ -21,7 +21,7 @@ public:
     seal::GaloisKeys get_galois_keys();
 
 private:
-    std::shared_ptr<seal::SEALContext> context;
+    seal::SEALContext *context;
     seal::KeyGenerator *keygen;
     seal::SecretKey secret_key;
     seal::Encryptor *encryptor;

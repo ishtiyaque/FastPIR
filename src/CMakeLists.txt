@@ -9,7 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin)
 add_executable(fastpir main.cpp server.cpp client.cpp fastpirparams.cpp)
 
 # Import Microsoft SEAL
-find_package(SEAL 3.5 REQUIRED)
+find_package(SEAL 3.7 REQUIRED)
 
 # Link Microsoft SEAL
 target_link_libraries(fastpir SEAL::seal)

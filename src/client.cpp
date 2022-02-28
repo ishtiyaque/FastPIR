@@ -10,19 +10,19 @@ Client::Client(FastPIRParams params)
     plain_bit_count = params.get_plain_modulus_size();
     num_query_ciphertext = params.get_num_query_ciphertext();
 
-    context = seal::SEALContext::Create(params.get_seal_params());
-    keygen = new seal::KeyGenerator(context);
+    context = new seal::SEALContext(params.get_seal_params());
+    keygen = new seal::KeyGenerator(*context);
     secret_key = keygen->secret_key();
-    encryptor = new seal::Encryptor(context, secret_key);
-    decryptor = new seal::Decryptor(context, secret_key);
-    batch_encoder = new seal::BatchEncoder(context);
+    encryptor = new seal::Encryptor(*context, secret_key);
+    decryptor = new seal::Decryptor(*context, secret_key);
+    batch_encoder = new seal::BatchEncoder(*context);
 
     std::vector<int> steps;
     for (int i = 1; i <= (num_columns_per_obj / 2); i *= 2)
     {
         steps.push_back(-i);
     }
-    gal_keys = keygen->galois_keys_local(steps);
+    keygen->create_galois_keys(steps, gal_keys);
 
     return;
 }

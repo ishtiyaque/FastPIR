@@ -2,12 +2,12 @@
 
 Server::Server(FastPIRParams params)
 {
-    context = seal::SEALContext::Create(params.get_seal_params());
+    context = new seal::SEALContext(params.get_seal_params());
     N = params.get_poly_modulus_degree();
     plain_bit_count = params.get_plain_modulus_size();
 
-    evaluator = new seal::Evaluator(context);
-    batch_encoder = new seal::BatchEncoder(context);
+    evaluator = new seal::Evaluator(*context);
+    batch_encoder = new seal::BatchEncoder(*context);
 
     this->num_obj = params.get_num_obj();
     this->obj_size = params.get_obj_size();
