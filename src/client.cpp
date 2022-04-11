@@ -18,7 +18,7 @@ Client::Client(FastPIRParams params)
     batch_encoder = new seal::BatchEncoder(*context);
 
     std::vector<int> steps;
-    for (int i = 1; i <= (num_columns_per_obj / 2); i *= 2)
+    for (int i = 1; i < (num_columns_per_obj / 2); i *= 2)
     {
         steps.push_back(-i);
     }
