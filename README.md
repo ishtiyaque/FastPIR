@@ -8,7 +8,7 @@ Please note that FastPIR is a research prototype and should not be used in produ
 
 ## Dependencies
 
-FastPIR depends on [Microsoft SEAL version 3.7.2](https://github.com/microsoft/SEAL/tree/3.7.2). For optimal
+FastPIR depends on [Microsoft SEAL version 4.1.1](https://github.com/microsoft/SEAL/tree/4.1.1). For optimal
 performance SEAL should be compiled with Clang++. 
 
 ## Compiling FastPIR
